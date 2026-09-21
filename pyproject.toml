@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "german-gridflex"
+version = "0.1.0"
+description = "Leakage-aware German curtailment forecasting and counterfactual storage valuation"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas>=2.2", "numpy>=1.26", "requests>=2.32", "pydantic>=2.7",
+  "pydantic-settings>=2.2", "PyYAML>=6", "scikit-learn>=1.5",
+  "scipy>=1.13", "joblib>=1.4", "plotly>=5.22", "streamlit>=1.35",
+  "cvxpy>=1.5", "pyarrow>=16"
+]
+
+[project.optional-dependencies]
+ml = ["lightgbm>=4.3", "xgboost>=2.0", "shap>=0.45"]
+dev = ["pytest>=8", "pytest-cov>=5", "ruff>=0.5", "mypy>=1.10"]
+
+[project.scripts]
+gridflex = "gridflex.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gridflex"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
