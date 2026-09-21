@@ -11,6 +11,8 @@ forecasts can improve the charging decisions of a hypothetical battery energy st
 The project connects four normally separate tasks: point-in-time energy data engineering,
 probabilistic machine learning, explainable forecasting, and counterfactual battery optimization.
 
+![System architecture showing public data, validation, forecasting and battery optimization](reports/figures/system_architecture.svg)
+
 > **Research status:** the complete research scaffold is implemented. Empirical model scores and
 > economic results are deliberately marked **pending** until a versioned public-data snapshot passes
 > validation and the chronological backtest is run. This repository does not invent observations,
@@ -114,6 +116,8 @@ The implemented `HurdleForecaster` returns event probability, conditional-volume
 probability-weighted expected volume. Optional LightGBM, XGBoost and SHAP dependencies are installed
 with the `ml` extra.
 
+![Two-stage hurdle model with event probability and conditional-volume quantiles](reports/figures/hurdle_model.svg)
+
 ### 4. Backtesting and metrics
 
 All evaluation is chronological. Expanding-window splits train only on observations preceding each
@@ -169,6 +173,8 @@ guaranteed access to or monetization of curtailed MWh.**
 
 ## Results
 
+![Verified engineering results and pending empirical research outputs](reports/figures/results_status.svg)
+
 ### Current verified engineering results
 
 | Deliverable | Status |
@@ -201,6 +207,26 @@ will report the following with data checksum, retrieval time, date splits and co
 
 This separation between implemented engineering results and pending empirical findings prevents
 unvalidated portfolio claims.
+
+### Reproducible result graphs
+
+The repository includes a strict chart renderer for the empirical results. It reads measured CSV
+artifacts and generates four publication-ready SVG figures:
+
+- held-out PR-AUC and Brier-score model comparison;
+- probability reliability/calibration curve;
+- P10/P50/P90 conditional-volume pinball loss;
+- price-only versus forecast-aware versus perfect-information battery value.
+
+```powershell
+python scripts/render_results.py
+```
+
+The command intentionally fails if any artifact is absent, empty, lacks held-out test rows or has the
+wrong schema. Expected files and columns are documented in [reports/RESULTS.md](reports/RESULTS.md).
+This makes every displayed performance graph traceable to a real backtest rather than an illustrative
+number. After a successful research run, the generated figures are committed alongside the dataset
+checksum, retrieval timestamp, split dates and configuration.
 
 ## Dashboard
 

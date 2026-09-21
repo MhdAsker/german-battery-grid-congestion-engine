@@ -52,8 +52,13 @@ def optimize_dispatch(
     problem.solve(solver=cp.CLARABEL)
     if problem.status not in {cp.OPTIMAL, cp.OPTIMAL_INACCURATE}:
         raise RuntimeError(f"battery optimization failed: {problem.status}")
-    schedule = pd.DataFrame({"price_eur_mwh": prices, "charge_mw": charge.value,
-                             "discharge_mw": discharge.value, "soc_mwh": soc.value[1:],
-                             "absorbed_opportunity_mwh": absorbed.value}, index=prices.index)
+    # Convex solvers may return values a few machine epsilons outside hard bounds. Clip only the
+    # published schedule representation; optimization and objective retain the raw solution.
+    reported_soc = np.clip(soc.value[1:], config.minimum_soc_mwh, config.maximum_soc_mwh)
+    reported_charge = np.clip(charge.value, 0, config.power_mw)
+    reported_discharge = np.clip(discharge.value, 0, config.power_mw)
+    reported_absorbed = np.clip(absorbed.value, 0, opportunity)
+    schedule = pd.DataFrame({"price_eur_mwh": prices, "charge_mw": reported_charge,
+                             "discharge_mw": reported_discharge, "soc_mwh": reported_soc,
+                             "absorbed_opportunity_mwh": reported_absorbed}, index=prices.index)
     return DispatchResult(schedule, float(problem.value), problem.status)
-

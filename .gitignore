@@ -13,4 +13,4 @@ models/*
 !models/.gitkeep
 reports/figures/*
 !reports/figures/.gitkeep
-
+!reports/figures/*.svg

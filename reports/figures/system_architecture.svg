@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">German battery grid congestion engine architecture</title>
+  <desc id="desc">Public energy data flows through point-in-time validation, forecasting, explainability and battery optimization.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#071426"/><stop offset="1" stop-color="#102f44"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-opacity=".25"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#55d6be"/></marker>
+  </defs>
+  <rect width="1200" height="420" rx="22" fill="url(#bg)"/>
+  <text x="60" y="52" fill="#fff" font-family="Segoe UI,Arial" font-size="28" font-weight="700">From public grid data to battery decisions</text>
+  <text x="60" y="82" fill="#9eb8c8" font-family="Segoe UI,Arial" font-size="15">Point-in-time controls prevent future information from leaking into next-day forecasts</text>
+  <g font-family="Segoe UI,Arial" filter="url(#shadow)">
+    <rect x="55" y="125" width="210" height="220" rx="16" fill="#163b52" stroke="#3f7892"/>
+    <text x="80" y="160" fill="#7ee8d5" font-size="19" font-weight="700">PUBLIC SOURCES</text>
+    <text x="80" y="205" fill="#fff" font-size="18">Netztransparenz</text><text x="80" y="230" fill="#b8cad5" font-size="14">§13k + Redispatch</text>
+    <text x="80" y="270" fill="#fff" font-size="18">SMARD</text><text x="80" y="295" fill="#b8cad5" font-size="14">Power + market data</text>
+    <text x="80" y="335" fill="#fff" font-size="18">ENTSO-E</text>
+    <rect x="355" y="125" width="220" height="220" rx="16" fill="#163b52" stroke="#3f7892"/>
+    <text x="380" y="160" fill="#7ee8d5" font-size="19" font-weight="700">DATA QUALITY</text>
+    <text x="380" y="205" fill="#fff" font-size="16">UTC + DST handling</text><text x="380" y="240" fill="#fff" font-size="16">Schema validation</text>
+    <text x="380" y="275" fill="#fff" font-size="16">Publication timestamps</text><text x="380" y="310" fill="#fff" font-size="16">Revision archive</text>
+    <rect x="665" y="125" width="220" height="220" rx="16" fill="#163b52" stroke="#3f7892"/>
+    <text x="690" y="160" fill="#7ee8d5" font-size="19" font-weight="700">FORECASTING</text>
+    <text x="690" y="205" fill="#fff" font-size="16">Event probability</text><text x="690" y="240" fill="#fff" font-size="16">P10 / P50 / P90</text>
+    <text x="690" y="275" fill="#fff" font-size="16">Calibration + SHAP</text><text x="690" y="310" fill="#fff" font-size="16">Rolling backtests</text>
+    <rect x="975" y="125" width="170" height="220" rx="16" fill="#55d6be"/>
+    <text x="1000" y="160" fill="#071426" font-size="19" font-weight="700">BATTERY</text>
+    <text x="1000" y="205" fill="#071426" font-size="16">Price-only</text><text x="1000" y="240" fill="#071426" font-size="16">Forecast-aware</text>
+    <text x="1000" y="275" fill="#071426" font-size="16">Perfect-info</text><text x="1000" y="310" fill="#071426" font-size="16">Value gap</text>
+  </g>
+  <g stroke="#55d6be" stroke-width="4" marker-end="url(#arrow)"><line x1="265" y1="235" x2="345" y2="235"/><line x1="575" y1="235" x2="655" y2="235"/><line x1="885" y1="235" x2="965" y2="235"/></g>
+</svg>

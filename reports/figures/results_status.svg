@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+  <title id="title">Verified engineering results and pending empirical research results</title><desc id="desc">Four engineering checks are verified while empirical model and battery results await validated data.</desc>
+  <rect width="1200" height="430" rx="22" fill="#0b1727"/>
+  <text x="55" y="55" fill="#fff" font-family="Segoe UI,Arial" font-size="28" font-weight="700">Results status — evidence, not placeholders</text>
+  <text x="55" y="84" fill="#9fb3c8" font-family="Segoe UI,Arial" font-size="15">Green items were directly verified; amber items require the versioned research dataset.</text>
+  <g font-family="Segoe UI,Arial">
+    <text x="60" y="135" fill="#55d6be" font-size="17" font-weight="700">VERIFIED ENGINEERING</text>
+    <g fill="#17364a"><rect x="55" y="155" width="500" height="45" rx="8"/><rect x="55" y="210" width="500" height="45" rx="8"/><rect x="55" y="265" width="500" height="45" rx="8"/><rect x="55" y="320" width="500" height="45" rx="8"/></g>
+    <g fill="#fff" font-size="16"><text x="80" y="184">✓ ENTSO-E authenticated XML request: HTTP 200</text><text x="80" y="239">✓ Credential absent from tracked repository files</text><text x="80" y="294">✓ Core automated test suite passed</text><text x="80" y="349">✓ Source compilation passed</text></g>
+    <text x="650" y="135" fill="#f6c85f" font-size="17" font-weight="700">EMPIRICAL RESEARCH — PENDING</text>
+    <g fill="#2e3140"><rect x="645" y="155" width="500" height="45" rx="8"/><rect x="645" y="210" width="500" height="45" rx="8"/><rect x="645" y="265" width="500" height="45" rx="8"/><rect x="645" y="320" width="500" height="45" rx="8"/></g>
+    <g fill="#f7df9b" font-size="16"><text x="670" y="184">○ Target event distribution and duration</text><text x="670" y="239">○ Out-of-sample discrimination and calibration</text><text x="670" y="294">○ Conditional-volume uncertainty coverage</text><text x="670" y="349">○ Battery value and perfect-information gap</text></g>
+    <text x="55" y="400" fill="#9fb3c8" font-size="14">The pipeline will replace pending items with measured charts only after validated, leakage-audited backtesting.</text>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="370" viewBox="0 0 1200 370" role="img" aria-labelledby="title desc">
+  <title id="title">Two-stage curtailment hurdle model</title><desc id="desc">The model first estimates event probability, then conditional volume quantiles.</desc>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#3765d7"/></marker></defs>
+  <rect width="1200" height="370" rx="22" fill="#f5f8fc"/>
+  <text x="55" y="52" fill="#102a43" font-family="Segoe UI,Arial" font-size="27" font-weight="700">Zero-inflated target → two-stage probabilistic forecast</text>
+  <g font-family="Segoe UI,Arial">
+    <rect x="55" y="110" width="215" height="165" rx="15" fill="#fff" stroke="#a9bdd0" stroke-width="2"/><text x="78" y="145" fill="#3765d7" font-size="17" font-weight="700">D-1 FEATURES</text><text x="78" y="183" fill="#334e68" font-size="15">Wind + solar forecast</text><text x="78" y="211" fill="#334e68" font-size="15">Residual load + price</text><text x="78" y="239" fill="#334e68" font-size="15">Lagged grid signals</text>
+    <rect x="365" y="90" width="225" height="205" rx="15" fill="#eaf0ff" stroke="#3765d7" stroke-width="2"/><text x="390" y="128" fill="#2347a5" font-size="17" font-weight="700">STAGE 1: EVENT</text><text x="390" y="170" fill="#334e68" font-size="15">Logistic / RF</text><text x="390" y="198" fill="#334e68" font-size="15">LightGBM / XGBoost</text><text x="390" y="244" fill="#102a43" font-size="21" font-weight="700">P(event)</text>
+    <rect x="685" y="90" width="225" height="205" rx="15" fill="#e9fbf7" stroke="#22a88a" stroke-width="2"/><text x="710" y="128" fill="#14745f" font-size="17" font-weight="700">STAGE 2: VOLUME</text><text x="710" y="170" fill="#334e68" font-size="15">Event rows only</text><text x="710" y="198" fill="#334e68" font-size="15">Quantile boosting</text><text x="710" y="244" fill="#102a43" font-size="21" font-weight="700">P10 · P50 · P90</text>
+    <rect x="1005" y="110" width="145" height="165" rx="15" fill="#102a43"/><text x="1028" y="145" fill="#7ee8d5" font-size="17" font-weight="700">OUTPUT</text><text x="1028" y="185" fill="#fff" font-size="15">Risk</text><text x="1028" y="213" fill="#fff" font-size="15">Range</text><text x="1028" y="241" fill="#fff" font-size="15">Expected MWh</text>
+  </g>
+  <g stroke="#3765d7" stroke-width="4" marker-end="url(#a)"><line x1="270" y1="192" x2="355" y2="192"/><line x1="590" y1="192" x2="675" y2="192"/><line x1="910" y1="192" x2="995" y2="192"/></g>
+  <text x="55" y="335" fill="#627d98" font-family="Segoe UI,Arial" font-size="14">Expected volume combines calibrated event probability with conditional volume; evaluation remains chronological.</text>
+</svg>
